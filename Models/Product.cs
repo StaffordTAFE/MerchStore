@@ -7,7 +7,7 @@ namespace MerchStore.Models
 	{
 		[BsonId]
 		[BsonRepresentation(BsonType.ObjectId)]
-		public string productId { get; set; } // PK
+		public string? productId { get; set; } // PK
 
 		[BsonElement("productName")]
 		public string productName { get; set; }

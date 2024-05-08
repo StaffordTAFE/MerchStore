@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\benja\\Documents\\TAFE SEM2\\MVC and Non Relational Databases\\Projects\\AT2\\API\\MerchStore\\MerchStore\\MerchStore.csproj": {}
+    "C:\\Users\\30082213\\Desktop\\MerchStore-main\\MerchStore.csproj": {}
   },
   "projects": {
-    "C:\\Users\\benja\\Documents\\TAFE SEM2\\MVC and Non Relational Databases\\Projects\\AT2\\API\\MerchStore\\MerchStore\\MerchStore.csproj": {
+    "C:\\Users\\30082213\\Desktop\\MerchStore-main\\MerchStore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\benja\\Documents\\TAFE SEM2\\MVC and Non Relational Databases\\Projects\\AT2\\API\\MerchStore\\MerchStore\\MerchStore.csproj",
+        "projectUniqueName": "C:\\Users\\30082213\\Desktop\\MerchStore-main\\MerchStore.csproj",
         "projectName": "MerchStore",
-        "projectPath": "C:\\Users\\benja\\Documents\\TAFE SEM2\\MVC and Non Relational Databases\\Projects\\AT2\\API\\MerchStore\\MerchStore\\MerchStore.csproj",
-        "packagesPath": "C:\\Users\\benja\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\benja\\Documents\\TAFE SEM2\\MVC and Non Relational Databases\\Projects\\AT2\\API\\MerchStore\\MerchStore\\obj\\",
+        "projectPath": "C:\\Users\\30082213\\Desktop\\MerchStore-main\\MerchStore.csproj",
+        "packagesPath": "C:\\Users\\30082213\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\30082213\\Desktop\\MerchStore-main\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\benja\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\30082213\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -72,7 +72,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
