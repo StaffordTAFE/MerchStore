@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace MerchStore.Controllers;
 #region Version 1
 [ApiVersion("1.0")]
-[Route("Products")]
+[Route("v1/products")]
 public class ProductsControllerV1 : ControllerBase
 {
 	private readonly MerchService _merchService;
@@ -119,7 +119,7 @@ public class ProductsControllerV1 : ControllerBase
 
 #region Version 2
 [ApiVersion("2.0")]
-[Route("Products")]
+[Route("v2/products")]
 public class ProductsControllerV2 : ControllerBase
 {
     private readonly MerchService _merchService;
