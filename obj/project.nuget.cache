@@ -1,9 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "jOffmMBMRJ5xdddRnwayS5dx2HNeVE/KLVYAwySHu6RLWQ9MPoo7kTtRaAYmVwIHplRf77vXZVe39/9bQcs6dg==",
+  "dgSpecHash": "X4cwGRbfJxsBP1KNUreGzjnd8G8B9sTyUA6j2Wv5uT/x7TVPjEw7DhsX9WAzZWYQ9rioXz51BaXChGq2N/QNIQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\30082213\\Desktop\\MerchStore-main\\MerchStore.csproj",
+  "projectFilePath": "C:\\Users\\30082213\\Desktop\\MerchStore\\MerchStore\\MerchStore.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\30082213\\.nuget\\packages\\asp.versioning.abstractions\\8.1.0\\asp.versioning.abstractions.8.1.0.nupkg.sha512",
+    "C:\\Users\\30082213\\.nuget\\packages\\asp.versioning.http\\8.1.0\\asp.versioning.http.8.1.0.nupkg.sha512",
+    "C:\\Users\\30082213\\.nuget\\packages\\asp.versioning.mvc\\8.1.0\\asp.versioning.mvc.8.1.0.nupkg.sha512",
     "C:\\Users\\30082213\\.nuget\\packages\\awssdk.core\\3.7.100.14\\awssdk.core.3.7.100.14.nupkg.sha512",
     "C:\\Users\\30082213\\.nuget\\packages\\awssdk.securitytoken\\3.7.100.14\\awssdk.securitytoken.3.7.100.14.nupkg.sha512",
     "C:\\Users\\30082213\\.nuget\\packages\\dnsclient\\1.6.1\\dnsclient.1.6.1.nupkg.sha512",
