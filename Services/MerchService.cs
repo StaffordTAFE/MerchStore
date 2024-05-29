@@ -25,13 +25,22 @@ public class MerchService
 	public async Task<List<Product>> GetAsync() =>
 		await _ProductCollection.Find(_ => true).ToListAsync();
 
-	// get by id
-	public async Task<Product?> GetIdAsync(int id) =>
+    // get all products queryable
+    public async Task<IQueryable<Product>> GetAsyncQueryable()
+    {
+        var productList = await _ProductCollection.Find(_ => true).ToListAsync();
+        return productList.AsQueryable();
+    }
+
+    // get by id
+    public async Task<Product?> GetIdAsync(int id) =>
 		await _ProductCollection.Find(x => x.productId == id).FirstOrDefaultAsync();
 
     // get by name
     public async Task<List<Product>> GetNameAsync(string name) =>
         await _ProductCollection.Find(x => x.productName.ToLower().Contains(name.ToLower())).ToListAsync();
+
+	// get by category
     public async Task<List<Product>> GetCategoryAsync(string category) =>
     await _ProductCollection.Find(x => x.categoryName.ToLower() == category.ToLower()).ToListAsync();
 

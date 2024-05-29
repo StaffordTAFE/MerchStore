@@ -2,6 +2,7 @@
 using MerchStore.Services;
 using Asp.Versioning;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace MerchStore.Controllers;
 #region Version 1
@@ -124,68 +125,51 @@ public class ProductsControllerV2 : ControllerBase
 {
     private readonly MerchService _merchService;
 
-    public ProductsControllerV2(MerchService MerchService) =>
-        _merchService = MerchService;
+    public ProductsControllerV2(MerchService merchService) =>
+        _merchService = merchService;
 
-    //Get no filter
+    //Get all with query parameters
     [HttpGet]
-    public async Task<ActionResult<List<Product>>> Get() =>
-        await _merchService.GetAsync();
-
-    //Get id
-    [HttpGet("Id/{productId}")]
-    public async Task<ActionResult<Product>> GetId(int productId)
+    public async Task<ActionResult> Get([FromQuery] QueryParameters queryParameters)
     {
-        var product = await _merchService.GetIdAsync(productId);
+        IQueryable<Product> products = await _merchService.GetAsyncQueryable();
 
-        if (product == null)
+        if (queryParameters.id > 0)
         {
-            return NotFound();
+            products = products.Where(p => p.productId == queryParameters.id);
         }
 
-        return product;
-    }
-
-    //Get name
-    [HttpGet("Search/{productName}")]
-    public async Task<ActionResult<List<Product?>>> GetName(string productName)
-    {
-        List<Product> products = await _merchService.GetNameAsync(productName);
-
-        if (products.Count == 0)
+        if (!string.IsNullOrEmpty(queryParameters.name))
         {
-            return NotFound();
+            products = products.Where(p => p.productName.Contains(queryParameters.name, StringComparison.OrdinalIgnoreCase));
         }
 
-        return products;
-    }
-
-    //Get category
-    [HttpGet("Category/{categoryName}")]
-    public async Task<ActionResult<List<Product?>>> GetCategory(string categoryName)
-    {
-        List<Product> products = await _merchService.GetNameAsync(categoryName);
-
-        if (products.Count == 0)
+        if (!string.IsNullOrEmpty(queryParameters.description))
         {
-            return NotFound();
+            products = products.Where(p => p.productDescription.Contains(queryParameters.description, StringComparison.OrdinalIgnoreCase));
         }
 
-        return products;
-    }
-
-    //Get name
-    [HttpGet("Price/{priceLower}-{priceUpper}")]
-    public async Task<ActionResult<List<Product?>>> GetPrice(double priceLower, double priceUpper)
-    {
-        List<Product> products = await _merchService.GetPriceAsync(priceLower, priceUpper);
-
-        if (products.Count == 0)
+        if (queryParameters.minPrice > 0)
         {
-            return NotFound();
+            products = products.Where(p => p.productPrice >= queryParameters.minPrice);
         }
 
-        return products;
+        if (queryParameters.maxPrice > 0)
+        {
+            products = products.Where(p => p.productPrice <= queryParameters.maxPrice);
+        }
+
+        if (queryParameters.stock > 0)
+        {
+            products = products.Where(p => p.productStock == queryParameters.stock);
+        }
+
+        if (!string.IsNullOrEmpty(queryParameters.category))
+        {
+            products = products.Where(p => p.categoryName.Contains(queryParameters.category, StringComparison.OrdinalIgnoreCase));
+        }
+
+        return Ok(products.ToArray());
     }
 
     [HttpPost]
