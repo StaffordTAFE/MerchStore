@@ -1,3 +1,4 @@
+using Asp.Versioning;
 using MerchStore.Models;
 using MerchStore.Services;
 
@@ -10,6 +11,16 @@ builder.Services.Configure<MerchStoreDatabaseSettings>(
 // Add services to the container.
 
 builder.Services.AddControllers();
+builder.Services.AddApiVersioning(options =>
+	{
+		options.ReportApiVersions = true;
+		options.DefaultApiVersion = new Asp.Versioning.ApiVersion(1, 0);
+		options.AssumeDefaultVersionWhenUnspecified = true;
+
+		options.ApiVersionReader = new HeaderApiVersionReader("X-API-version");
+	}
+);
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

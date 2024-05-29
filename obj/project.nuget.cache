@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "X4cwGRbfJxsBP1KNUreGzjnd8G8B9sTyUA6j2Wv5uT/x7TVPjEw7DhsX9WAzZWYQ9rioXz51BaXChGq2N/QNIQ==",
+  "dgSpecHash": "AuCWWcW2Sl0BOnBeR24UBMhFT/FimmiBzGqugNhFuwORTKurWbFifM0K3+JytzRvsSQ+qmYrp3Pu+Xr/TuU3Mw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\30082213\\Desktop\\MerchStore\\MerchStore\\MerchStore.csproj",
+  "projectFilePath": "C:\\Users\\30082213\\Desktop\\MerchStore-main\\MerchStore.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\30082213\\.nuget\\packages\\asp.versioning.abstractions\\8.1.0\\asp.versioning.abstractions.8.1.0.nupkg.sha512",
     "C:\\Users\\30082213\\.nuget\\packages\\asp.versioning.http\\8.1.0\\asp.versioning.http.8.1.0.nupkg.sha512",
