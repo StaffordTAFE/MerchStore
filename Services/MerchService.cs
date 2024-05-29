@@ -32,6 +32,14 @@ public class MerchService
         return productList.AsQueryable();
     }
 
+    //check if id exists
+    public async Task<bool> DoesIdExistAsync(int id)
+    {
+        var product = await _ProductCollection.Find(x => x.productId == id).FirstOrDefaultAsync();
+        return product != null;
+    }
+
+
     // get by id
     public async Task<Product?> GetIdAsync(int id) =>
 		await _ProductCollection.Find(x => x.productId == id).FirstOrDefaultAsync();

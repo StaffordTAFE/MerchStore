@@ -172,44 +172,108 @@ public class ProductsControllerV2 : ControllerBase
         return Ok(products.ToArray());
     }
 
+    //add new product
     [HttpPost]
-    public async Task<IActionResult> Post(Product newProduct)
+    public async Task<ActionResult> Post([FromQuery] QueryParameters queryParameters)
     {
+        Product newProduct = new Product();
+
+        int id = 1;
+        while (_merchService.DoesIdExistAsync(id).Result)
+        {
+            id++;
+        }
+
+        newProduct.productId = id;
+
+        if (!string.IsNullOrEmpty(queryParameters.name))
+        {
+            newProduct.productName = queryParameters.name;
+        }
+
+        if (!string.IsNullOrEmpty(queryParameters.description))
+        {
+            newProduct.productDescription = queryParameters.description;
+        }
+
+        if (queryParameters.price > 0)
+        {
+            newProduct.productPrice = queryParameters.price;
+        }
+
+        if (queryParameters.stock > 0)
+        {
+            newProduct.productStock = queryParameters.stock;
+        }
+
+        if (!string.IsNullOrEmpty(queryParameters.category))
+        {
+            newProduct.categoryName = queryParameters.category;
+        }
+
+
         await _merchService.CreateAsync(newProduct);
 
         return CreatedAtAction(nameof(Get), new { productId = newProduct.productId }, newProduct);
     }
 
-    [HttpPut("{productId:length(24)}")]
-    public async Task<IActionResult> Update(int productId, Product updatedProduct)
+    //update product
+    [HttpPut]
+    public async Task<IActionResult> Update([FromQuery] QueryParameters queryParameters)
     {
-        var product = await _merchService.GetIdAsync(productId);
+        var product = await _merchService.GetIdAsync(queryParameters.id);
 
         if (product is null)
         {
-            return NotFound();
+            return Ok("There is no item with id: " + queryParameters.id);
         }
 
-        updatedProduct.productId = product.productId;
+        product.productId = queryParameters.id;
 
-        await _merchService.UpdateAsync(productId, updatedProduct);
+        if (!string.IsNullOrEmpty(queryParameters.name))
+        {
+            product.productName = queryParameters.name;
+        }
 
-        return NoContent();
+        if (!string.IsNullOrEmpty(queryParameters.description))
+        {
+            product.productDescription = queryParameters.description;
+        }
+
+        if (queryParameters.price > 0)
+        {
+            product.productPrice = queryParameters.price;
+        }
+
+        if (queryParameters.stock > 0)
+        {
+            product.productStock = queryParameters.stock;
+        }
+
+        if (!string.IsNullOrEmpty(queryParameters.category))
+        {
+            product.categoryName = queryParameters.category;
+        }
+
+
+        await _merchService.UpdateAsync(queryParameters.id, product);
+
+        return Ok(product);
     }
 
-    [HttpDelete("{productId:length(24)}")]
-    public async Task<IActionResult> Delete(int productId)
+    [HttpDelete]
+    public async Task<IActionResult> Delete([FromQuery] QueryParameters queryParameters)
     {
-        var product = await _merchService.GetIdAsync(productId);
+        var product = await _merchService.GetIdAsync(queryParameters.id);
 
         if (product is null)
         {
-            return NotFound();
+            return Ok("There is no item with id: " + queryParameters.id);
         }
 
-        await _merchService.RemoveAsync(productId);
+        await _merchService.RemoveAsync(queryParameters.id);
 
-        return NoContent();
+        return Ok(product);
     }
 }
 #endregion
