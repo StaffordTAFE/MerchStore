@@ -23,12 +23,12 @@ public class MerchService
 
 	// get all products
 	public async Task<List<Product>> GetAsync() =>
-		await _ProductCollection.Find(_ => true).ToListAsync();
+		await _ProductCollection.Find(_ => true).SortBy(product => product.productName).ToListAsync();
 
     // get all products queryable
     public async Task<IQueryable<Product>> GetAsyncQueryable()
     {
-        var productList = await _ProductCollection.Find(_ => true).ToListAsync();
+        var productList = await _ProductCollection.Find(_ => true).SortBy(product => product.productName).ToListAsync();
         return productList.AsQueryable();
     }
 
