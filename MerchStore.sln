@@ -5,6 +5,8 @@ VisualStudioVersion = 17.8.34316.72
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MerchStore", "MerchStore.csproj", "{74829F5C-B626-44DC-A106-2836E9C38CD8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MerchStore_Web_App", "..\MerchStore_Web_App\MerchStore_Web_App.csproj", "{095E09D1-4FA8-4A41-9612-D5E1834EDC3B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{74829F5C-B626-44DC-A106-2836E9C38CD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{74829F5C-B626-44DC-A106-2836E9C38CD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{74829F5C-B626-44DC-A106-2836E9C38CD8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{095E09D1-4FA8-4A41-9612-D5E1834EDC3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{095E09D1-4FA8-4A41-9612-D5E1834EDC3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{095E09D1-4FA8-4A41-9612-D5E1834EDC3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{095E09D1-4FA8-4A41-9612-D5E1834EDC3B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
