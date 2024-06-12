@@ -29,7 +29,7 @@ public class MerchService
     public async Task<IQueryable<Product>> GetAsyncQueryable()
     {
         var productList = await _ProductCollection.Find(_ => true).SortBy(product => product.productName).ToListAsync();
-        return productList.AsQueryable();
+        return (productList.AsQueryable());
     }
 
     //check if id exists
